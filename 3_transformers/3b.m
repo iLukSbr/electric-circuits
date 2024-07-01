@@ -1,0 +1,39 @@
+Z_delta=3*Z_Y
+Z_C=-C*omega*i
+Z_delta2=1/(1/Z_delta+1/Z_C)
+Z_Y=Z_delta2/3
+I_a=E_AN/Z_Y
+I_b=E_BN/Z_Y
+I_c=E_CN/Z_Y
+I_a_RMS=abs(I_a)/sqrt(2)
+I_b_RMS=abs(I_b)/sqrt(2)
+I_c_RMS=abs(I_c)/sqrt(2)
+I_n=I_a+I_b+I_c
+theta=angle(E_AN)-angle(I_a)
+P=3*V_p_RMS*abs(I_a)*cos(theta)
+Q=3*E_AN*I_a_RMS*sin(theta)
+S=sqrt(P^2+Q^2)
+FP=P/S
+I_a_eq=abs(I_a)*cos(omega*t+angle(I_a))
+I_b_eq=abs(I_b)*cos(omega*t+angle(I_b))
+I_c_eq=abs(I_c)*cos(omega*t+angle(I_c))
+I_a_RMS_const=ones(size(t))*I_a_RMS
+I_b_RMS_const=ones(size(t))*I_b_RMS
+I_c_RMS_const=ones(size(t))*I_c_RMS
+cla
+plot(t,I_a_eq)
+hold on
+plot(t,I_b_eq)
+plot(t,I_c_eq)
+plot(t,I_a_RMS_const)
+plot(t,I_b_RMS_const)
+plot(t,I_c_RMS_const)
+legend('I_a','I_b','I_c','I_a_{RMS}','I_b_{RMS}','I_c_{RMS}')
+xlabel('t (s)')
+ylabel('I (A)')
+abs(I_a)
+rad2deg(angle(I_a))
+abs(I_b)
+rad2deg(angle(I_b))
+abs(I_c)
+rad2deg(angle(I_c))

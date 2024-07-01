@@ -1,0 +1,96 @@
+
+**** 06/20/24 10:11:22 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\revox\Desktop\ex1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jun 20 10:11:17 2024
+
+
+
+** Analysis setup **
+.tran 10ms 30s 0 1ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "ex1.net"
+
+**** INCLUDING ex1.net ****
+* Schematics Netlist *
+
+
+
+C_C1         $N_0001 $N_0002  0.05  
+L_L1         $N_0002 0  10  
+R_R1         $N_0003 $N_0001  30  
+V_V1         $N_0003 0  
++SIN 0 1 0.1591 0 0 0
+
+**** RESUMING ex1.cir ****
+.INC "ex1.als"
+
+
+
+**** INCLUDING ex1.als ****
+* Schematics Aliases *
+
+.ALIASES
+C_C1            C1(1=$N_0001 2=$N_0002 )
+L_L1            L1(1=$N_0002 2=0 )
+R_R1            R1(1=$N_0003 2=$N_0001 )
+V_V1            V1(+=$N_0003 -=0 )
+.ENDALIASES
+
+
+**** RESUMING ex1.cir ****
+.probe
+
+
+.END
+
+**** 06/20/24 10:11:22 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\revox\Desktop\ex1.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+($N_0001)    0.0000                   ($N_0002)    0.0000                       
+
+($N_0003)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME            3.16
+

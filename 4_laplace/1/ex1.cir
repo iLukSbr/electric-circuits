@@ -1,0 +1,22 @@
+* C:\Users\revox\Desktop\ex1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jun 20 10:11:17 2024
+
+
+
+** Analysis setup **
+.tran 10ms 30s 0 1ms
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "ex1.net"
+.INC "ex1.als"
+
+
+.probe
+
+
+.END
